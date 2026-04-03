@@ -8,9 +8,10 @@ Hardware config :
 
 First install a minimal Ubuntu 20.04, then follow the instructions below.
 
-Add yourself to the required group, updates and install required packages.
+Add yourself to the required group, fix permissions, updates and install required packages.
 ```bash
 sudo usermod -a -G render $LOGNAME
+sudo chmod 666 /dev/dri/card0
 sudo apt-get update
 sudo apt-get install wget gnupg2 gawk curl p7zip-full
 ```
@@ -41,7 +42,7 @@ export PATH=$PATH:/opt/rocm-5.4.2/bin:/opt/rocm-5.4.2/opencl/bin
 Verify the installations. You should see the GPUs.
 ```
 rocminfo
-opencl/bin/clinfo
+clinfo
 rocm-smi
 ```
 
@@ -50,6 +51,7 @@ Installation of Hashcat.
 wget https://hashcat.net/files/hashcat-7.1.2.7z
 7z x hashcat-7.1.2.7z
 sudo mv hashcat-7.1.2 /opt
+mv /opt/hashcat-7.1.2/hashcat.bin /opt/hashcat-7.1.2/hashcat
 export PATH=$PATH:/opt/hashcat-7.1.2
 ```
 
