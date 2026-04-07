@@ -60,7 +60,37 @@ Benchmark Hashcat
 hashcat -b
 ```
 
+## Simple Cracking Demo
 
+#### Password Cracking with wordlist
+Passwords to crack:
+
+in hash.txt:
+```
+dcba8a186c68633dba69644277285466:babygirl10
+7ab0171aec27a57da13621a615910e43:slipknot666
+```
+The cli:
+```bash
+hashcat hash.txt -m 0 -a 0 /usr/share/wordlists/rockyou.txt
+```
+
+#### Custom password bruteforce
+For 7 chars it should takes max 30s
+in hash2.txt
+```
+2592fe5f6de3412d66ecd88ee1f8757d:es1e442
+```
+
+The cli:
+```bash
+hashcat -a 3 -m 0 hash2.txt
+```
+
+Then
+```bash
+hashcat -a 3 -m 0 hash2.txt --show
+```
 
 ## Sources
 - https://archive.is/20240121234333/https://medium.com/@ttio2tech_28094/rocm-v5-4-2-installation-guide-for-amd-gpu-in-early-2023-8f5b3933d1d6#selection-560.36-560.37
