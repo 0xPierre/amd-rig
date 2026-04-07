@@ -52,7 +52,7 @@ wget https://hashcat.net/files/hashcat-7.1.2.7z
 7z x hashcat-7.1.2.7z
 sudo mv hashcat-7.1.2 /opt
 mv /opt/hashcat-7.1.2/hashcat.bin /opt/hashcat-7.1.2/hashcat
-export PATH=$PATH:/opt/hashcat-7.1.2
+echo 'export PATH="$PATH:/opt/hashcat-7.1.2"' >> ~/.bashrc
 ```
 
 Benchmark Hashcat
